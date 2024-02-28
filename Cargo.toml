@@ -7,9 +7,43 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/ashleygwilliams/axolotlsay-demo"
 authors = ["ashley williams <ashley@axo.dev>"]
 
+[package.metadata.wix]
+upgrade-guid = "9F21DA29-BDA2-4E30-8C0B-CFE8D0C8BA42"
+path-guid = "F9C42F1A-D1E9-4EC3-8E87-41A8BE9034CE"
+license = false
+eula = false
+
 [dependencies]
 clap = { version = "4.1.4", features = ["derive"] }
 unicode-width = "0.1.10"
 
 [dev-dependencies]
 assert_cmd = "2.0.8"
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+# Config for 'cargo dist'
+[workspace.metadata.dist]
+# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.11.1"
+# CI backends to support
+ci = ["github"]
+# The installers to generate for each app
+installers = ["shell", "powershell", "npm", "homebrew", "msi"]
+# A GitHub repo to push Homebrew formulas to
+tap = "ashleygwilliams/tap-demo"
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-unknown-linux-musl", "x86_64-pc-windows-msvc"]
+# The archive format to use for windows builds (defaults .zip)
+windows-archive = ".tar.gz"
+# The archive format to use for non-windows builds (defaults .tar.xz)
+unix-archive = ".tar.gz"
+# A namespace to use when publishing this package to the npm registry
+npm-scope = "@ag_dubs"
+# Publish jobs to run in CI
+publish-jobs = ["homebrew"]
+# Publish jobs to run in CI
+pr-run-mode = "skip"

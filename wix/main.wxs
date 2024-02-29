@@ -61,7 +61,7 @@
     <Product
         Id='*'
         Name='axolotlsay'
-        UpgradeCode='9F21DA29-BDA2-4E30-8C0B-CFE8D0C8BA42'
+        UpgradeCode='23E71996-57A9-4510-A8F4-35D8491C5A38'
         Manufacturer='ashley williams'
         Language='1033'
         Codepage='1252'
@@ -110,7 +110,7 @@
                     -->
 
                     <Directory Id='Bin' Name='bin'>
-                        <Component Id='Path' Guid='F9C42F1A-D1E9-4EC3-8E87-41A8BE9034CE' KeyPath='yes'>
+                        <Component Id='Path' Guid='BD9ED54D-A8A6-46FF-82B4-4C57D6FB024A' KeyPath='yes'>
                             <Environment
                                 Id='PATH'
                                 Name='PATH'
